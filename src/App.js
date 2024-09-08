@@ -19,8 +19,8 @@ function App() {
     }
   return (
   <>
-  <Navbar title="PlayWithText" mode = {mode} handleMode = {handleMode}/>
-  <div className="container my-3"><Form heading ="Enter the text Play" mode = {mode}/></div>
+  <Navbar title="Convert Case" mode = {mode} handleMode = {handleMode}/>
+  <div className="container my-3"><Form heading ="Enter the text" mode = {mode}/></div>
   </>
   );
 }

@@ -61,12 +61,12 @@ export default function Form(props) {
         <div className="mb-3">
             <textarea className="form-control" value={text} onChange = {handleOnChange} id="myBox" rows="8" placeholder='Enter the text here' style={{backgroundColor: props.mode === "dark" ? "grey" : "white", color: props.mode === "dark" ? "white" : "black" }}></textarea>
         </div>
-        <button className="btn btn-primary mx-1" onClick={handleLoClick}>Lower Case</button>
-        <button className="btn btn-primary mx-1" onClick={handleCapClick}>Capitalized Words</button>
-        <button className="btn btn-primary mx-1" onClick={handleUpClick}>Upper Case</button>
-        <button className="btn btn-primary mx-1" onClick={handleInverseClick}>Inverse Case</button>
-        <button className="btn btn-primary mx-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
-        <button className="btn btn-danger mx-1" onClick={handleReset}>Reset</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleLoClick}>Lower Case</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleCapClick}>Capitalized Words</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>Upper Case</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleInverseClick}>Inverse Case</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+        <button className="btn btn-danger mx-1 my-1" onClick={handleReset}>Reset</button>
     </div>
     <div className="container" >
        <h1 >Your Text Summary</h1>
