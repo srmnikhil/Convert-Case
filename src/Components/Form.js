@@ -3,12 +3,22 @@ import PropTypes from 'prop-types'
 
 export default function Form(props) {
     const handleUpClick = ()=> {
-        let newText = text.toUpperCase()
-        setText(newText)
+        let newText = text.toUpperCase();
+        setText(newText);
+        if(text.length>0){
+            props.showAlert("Your text was converted to Uppercase.", "success");
+        } else {
+            props.showAlert("Enter some text to convert in Uppercase.", "warning");
+        }
     }
     const handleLoClick = ()=> {
-        let newText = text.toLowerCase()
-        setText(newText)
+        let newText = text.toLowerCase();
+        setText(newText);
+        if(text.length>0){
+            props.showAlert("Your text was converted to Lowercase.", "success");
+        } else {
+            props.showAlert("Enter some text to convert in Lowercase.", "warning");
+        }
     }
     const handleInverseClick = () => {
             if(text === text.toLowerCase() && text !== text.toUpperCase()){
@@ -28,6 +38,11 @@ export default function Form(props) {
             else {
                 handleCapClick();
             }
+            if(text.length>0){
+                props.showAlert("Your text was converted to Inversecase.", "success");
+            } else {
+                props.showAlert("Enter some text to convert in Inversecase.", "warning");
+            }
     };
     const handleCapClick = () => {
         if (text.length > 0) {
@@ -38,15 +53,43 @@ export default function Form(props) {
             let capitalizedSentence = capitalizedWords.join(' ');
             let newText = capitalizedSentence
             setText(newText);
+            props.showAlert("Your text was converted to Capitalized Words.", "success");
+            } else {
+                props.showAlert("Enter some text to convert in Capitalized Words.", "warning");
+            }
         }
-    };
     const handleExtraSpaces = ()=>{
         let newText = text.split(/\s+/).join(" ").trim();
-        setText(newText)
+        setText(newText);
+        if (text.length > 0 && newText !== text.trim()) {
+            // If text has content and newText does not match the trimmed text, there were extra spaces
+            props.showAlert("Removed extra spaces from your text.", "success");
+        } else if (text.length === 0) {
+            // If text is empty, prompt the user to enter some text
+            props.showAlert("Enter some text to remove extra spaces.", "danger");
+        } else {
+            // For all other cases, handle appropriately
+            props.showAlert("Your text don't have any extra spaces.", "warning");
+        }
+    }
+    const handleCopy = () =>{
+        let copyText = document.getElementById("myBox");
+        copyText.select();
+        navigator.clipboard.writeText(copyText.value);
+        if(text.length>0){
+            props.showAlert("Copied to Clipboard.", "success");
+        } else {
+            props.showAlert("Enter some text to Copy to Clipboard.", "warning");
+        }
     }
     const handleReset = ()=>{
-        let newText = ""
-        setText(newText)
+        let newText = "";
+        setText(newText);
+        if(text.length>0){
+            props.showAlert("TextArea is cleared Successfully.", "success");
+        } else {
+            props.showAlert("TextArea is already cleared.", "warning");
+        }
     }
     const handleOnChange = (event)=> {
         setText(event.target.value)
@@ -66,6 +109,7 @@ export default function Form(props) {
         <button className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>Upper Case</button>
         <button className="btn btn-primary mx-1 my-1" onClick={handleInverseClick}>Inverse Case</button>
         <button className="btn btn-primary mx-1 my-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+        <button className="btn btn-success mx-1 my-1" onClick={handleCopy}>Copy to Clipboard</button>
         <button className="btn btn-danger mx-1 my-1" onClick={handleReset}>Reset</button>
     </div>
     <div className="container" >
