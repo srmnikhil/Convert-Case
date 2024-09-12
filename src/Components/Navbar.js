@@ -8,34 +8,31 @@ export default function Navbar(props) {
         props.setMode("light");
         document.body.style.backgroundColor = "white";
         document.body.style.color = "black";
-        props.showAlert("Light mode was enabled.", "success");
         setThemeChanged(false);
-        setNavColor("light");
     }
     const handleDarkMode =() =>{
         props.setMode("dark");
         setThemeChanged(false);
         document.body.style.backgroundColor = "#042743";
         document.body.style.color = "white";
-        props.showAlert("Dark mode was enabled.", "success");
     }
     const handleRedBlue = () => {
-            setThemeChanged(true);
-            document.body.style.color = "black";
-            document.body.style.backgroundColor = "#57adbf";
-            setNavColor("danger");
+        setThemeChanged(true);
+        document.body.style.color = "black";
+        document.body.style.backgroundColor = "#57adbf";
+        setNavColor("danger");
     }
     const handleGreenYellow = () => {
-            setThemeChanged(true);
-            document.body.style.color = "black";
-            document.body.style.backgroundColor = "yellow";
-            setNavColor("success");
+        setThemeChanged(true);
+        document.body.style.color = "black";
+        document.body.style.backgroundColor = "yellow";
+        setNavColor("success");
     }
-        const collapseButtonStyle = {
-            borderColor: props.mode === "dark" ? "white" : "black",
-            backgroundColor: props.mode === "dark" ? "white" : "",
-            color: props.mode === "dark" ? "#042743" : ""
-        }
+    const collapseButtonStyle = {
+        borderColor: props.mode === "dark" ? "white" : "black",
+        backgroundColor: props.mode === "dark" ? "white" : "",
+        color: props.mode === "dark" ? "#042743" : ""
+    }
   return (
     <nav className={`navbar navbar-expand-lg bg-${themeChanged === true ? navColor : props.mode}`} >
     <div className={`container-fluid ${themeChanged || props.mode === "dark" ? "text-light" : "text-dark"}`}>
@@ -49,7 +46,7 @@ export default function Navbar(props) {
                     <a className={`nav-link active ${themeChanged || props.mode === "dark" ? "text-light" : "text-dark"}`} aria-current="page" href="/">Home</a>
                 </li>
                 <li className="nav-item">
-                    <a className={`nav-link ${themeChanged || props.mode === "dark" ? "text-light" : "text-dark"}`} href="About.js">About Us</a>
+                    <a className={`nav-link ${themeChanged || props.mode === "dark" ? "text-light" : "text-dark"}`} href="/">About Us</a>
                 </li>
                 </ul>
                 <div className="icons">

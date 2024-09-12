@@ -9,7 +9,8 @@ export default function Form(props) {
         '?', '/', '~', '`'
       ];
     const handleUpClick = ()=> {
-        setText(text.toUpperCase());
+        let upperText = text.toUpperCase();
+        setText(upperText);
         if(text.length>0){
             props.showAlert("Your text was converted to Uppercase.", "success");
         } else {
@@ -17,7 +18,8 @@ export default function Form(props) {
         }
     };
     const handleLoClick = ()=> {
-        setText(text.toLowerCase());
+        let lowerText = text.toLowerCase();
+        setText(lowerText);
         if(text.length>0){
             props.showAlert("Your text was converted to Lowercase.", "success");
         } else {
@@ -95,7 +97,7 @@ export default function Form(props) {
         }
     }
     const handleOnChange = (event)=> {
-        setText(event.target.value)
+        setText(event.target.value);
     }
 
     const wordCount = text.split(" ").filter(Boolean).length;
@@ -117,13 +119,15 @@ export default function Form(props) {
         <button className="btn btn-danger mx-1 my-1" onClick={handleReset}>Reset</button>
     </div>
     <div className="container" >
-       <h1 >Your Text Summary</h1>
-       <p >{wordCount} words and {text.length} characters</p>
-       <p >{readTime.toFixed(2)} minute will took to read the text.</p>
+       <h1>Your Text Summary</h1>
+       <p>{wordCount} words and {text.length} characters</p>
+       <p>{readTime.toFixed(2)} minute will took to read the text.</p>
        </div>
     </>
   )
 }
 Form.propTypes = {
     heading: PropTypes.string.isRequired,
+    mode: PropTypes.string.isRequired,
+    showAlert: PropTypes.func.isRequired
 }
