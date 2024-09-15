@@ -106,8 +106,8 @@ export default function Form(props) {
     <>
     <div className="container" >
         <h1>{props.heading}</h1>
-        <div className="mb-3">
-            <textarea className="form-control" value={text} onChange = {handleOnChange} id="myBox" rows="8" placeholder='Enter the text here' style={{backgroundColor: props.mode === "light" ? "white" : "#bfbdbd", color: props.mode === "dark" ? "white" : "black" }}></textarea>
+        <div className="mb-2">
+            <textarea className="form-control" value={text} onChange = {handleOnChange} id="myBox" rows="7" placeholder='Enter the text here' style={{backgroundColor: props.mode === "light" ? "white" : "#bfbdbd", color: props.mode === "dark" ? "white" : "black" }}></textarea>
         </div>
         <button className="btn btn-primary mx-1 my-1" onClick={handleLoClick}>Lower Case</button>
         <button className="btn btn-primary mx-1 my-1" onClick={handleCapClick}>Capitalized Words</button>

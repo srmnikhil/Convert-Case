@@ -37,17 +37,17 @@ export default function Navbar(props) {
    <div className='header'>
      <nav className={`navbar fixed-top navbar-expand-lg bg-${themeChanged === true ? navColor : props.mode}`} >
         <div className={`container-fluid ${themeChanged || props.mode === "dark" ? "text-light" : "text-dark"}`}>
-            <strong><a className={`navbar-brand ${themeChanged || props.mode === "dark" ? "text-light" : "text-dark"}`} href="/">{props.title}</a></strong>
+            <strong><a className={`navbar-brand ${themeChanged || props.mode === "dark" ? "text-light" : "text-dark"}`} href="/convert-case"><img className='logo' src={`${process.env.PUBLIC_URL}/icon.png`} alt="website-logo" />Convert Case</a></strong>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style={collapseButtonStyle}>
             <span className="navbar-toggler-icon" style={collapseButtonStyle}></span>
             </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     <li className="nav-item">
-                        <a className={`nav-link active ${themeChanged || props.mode === "dark" ? "text-light" : "text-dark"}`} aria-current="page" href="/">Home</a>
+                        <a className={`nav-link active ${themeChanged || props.mode === "dark" ? "text-light" : "text-dark"}`} aria-current="page" href="/convert-case">Home</a>
                     </li>
                     <li className="nav-item">
-                        <a className={`nav-link ${themeChanged || props.mode === "dark" ? "text-light" : "text-dark"}`} href="/">About Us</a>
+                        <a className={`nav-link ${themeChanged || props.mode === "dark" ? "text-light" : "text-dark"}`} href="/convert-case">About Us</a>
                     </li>
                     </ul>
                     <div className="icons">
@@ -65,7 +65,6 @@ export default function Navbar(props) {
 }
 
 Navbar.propTypes={
-    title: PropTypes.string.isRequired,
     setMode: PropTypes.func.isRequired,
     mode: PropTypes.string.isRequired,
     showAlert: PropTypes.func.isRequired,

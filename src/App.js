@@ -20,10 +20,14 @@ function App() {
         }
   return (
   <>
-  <Navbar title = "Convert Case" mode = {mode} setMode = {setMode} showAlert = {showAlert}/>
-  <Alert alert = {alert}/>
-  <Form heading = "Enter the text" showAlert = {showAlert} mode = {mode}/>
-  <Footer />
+  <div className="app-container">
+    <Navbar mode = {mode} setMode = {setMode} showAlert = {showAlert}/>
+    <Alert alert = {alert}/>
+    <div className="content">
+        <Form heading = "Enter the text" showAlert = {showAlert} mode = {mode}/>
+    </div>
+    <Footer />
+  </div>
   </>
   );
 }
