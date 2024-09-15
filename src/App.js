@@ -3,6 +3,7 @@ import React, {useState}from 'react';
 import Navbar from './Components/Navbar';
 import Form from './Components/Form';
 import Alert from './Components/Alert';
+import Footer from './Components/Footer';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
   <Navbar title = "Convert Case" mode = {mode} setMode = {setMode} showAlert = {showAlert}/>
   <Alert alert = {alert}/>
   <Form heading = "Enter the text" showAlert = {showAlert} mode = {mode}/>
+  <Footer />
   </>
   );
 }
